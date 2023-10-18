@@ -8,6 +8,7 @@ This README provides step-by-step instructions for setting up a Python virtual e
 2. [Activating the Virtual Environment](#activating-the-virtual-environment)
 3. [Working with Flask](#working-with-flask)
 4. [Working with SQLite](#working-with-sqlite)
+5. [Testing SQL Injections](#testing-sql-injections)
 
 ## Setting Up a Virtual Environment
 
