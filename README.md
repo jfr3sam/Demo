@@ -15,55 +15,54 @@ This README provides step-by-step instructions for setting up a Python virtual e
 
 1. **Open Command Prompt**: Press `Windows + R`, type `cmd`, and hit Enter.
 2. **Navigate to Project Directory**: Use the `cd` command to navigate to your project folder.
-3. **Create Virtual Environment**:  
-    ```cmd
-    python -m venv myenv
-    ```
+3. **Create Virtual Environment**:
+   ```cmd
+   python -m venv env
+   ```
 
 ### macOS and Linux
 
 1. **Open Terminal**: Open it from the Applications folder or search for it using Spotlight (`Cmd + Space`).
 2. **Navigate to Project Directory**: Use the `cd` command to go to your project folder.
-3. **Create Virtual Environment**:  
-    ```bash
-    python3 -m venv myenv
-    ```
+3. **Create Virtual Environment**:
+   ```bash
+   python3 -m venv env
+   ```
 
 ## Activating the Virtual Environment
 
 ### Windows
 
-1. **Activate Virtual Environment**:  
-    ```cmd
-    .\myenv\Scripts\Activate
-    ```
+1. **Activate Virtual Environment**:
+   ```cmd
+   .\env\Scripts\Activate
+   ```
 
 ### macOS and Linux
 
-1. **Activate Virtual Environment**:  
-    ```bash
-    source myenv/bin/activate
-    ```
+1. **Activate Virtual Environment**:
+   ```bash
+   source env/bin/activate
+   ```
 
 ## Working with Flask
 
-1. **Install Flask**:  
-    ```bash
-    pip install Flask
-    ```
-2. **Run Flask Application**:  
-    ```bash
-    flask run
-    ```
+1. **Install Flask**:
+   ```bash
+   pip install Flask
+   ```
+2. **Run Flask Application**:
+   ```bash
+   flask run
+   ```
 
 ## Working with SQLite
 
-1. **Install SQLite**:  
-    ```bash
-    pip install sqlite
-    ```
-2. **Initialize Database**:  
-    ```bash
-    python init_db.py
-    ```
-
+1. **Install SQLite**:
+   ```bash
+   pip install sqlite
+   ```
+2. **Initialize Database**:
+   ```bash
+   python init_db.py
+   ```
