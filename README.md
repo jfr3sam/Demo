@@ -94,7 +94,7 @@ SQLite doesn't allow multiple statements in a single SQL query, which limits the
 
 2. **Password**:
    ```bash
-   (Leave it blank)
+   Leave it blank
    ```
 
 ### Boolean-based SQL Injection
@@ -122,5 +122,5 @@ SQLite does not have built-in sleep functions, but for databases that do (like M
 
 2. **Password**:
    ```bash
-   (Leave it blank)
+   Leave it blank
    ```
