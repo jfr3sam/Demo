@@ -1,0 +1,23 @@
+############ Classic SQL Injection ############
+
+    username = ' OR '1'='1 and password = ' OR '1'='1
+
+    '1' = '1' --> is always True
+
+        This will result ---> username and password check will be ignored 
+
+    How it works:
+
+        1. The user submite the form with malicious input.
+
+        2. SQL is query string is dynamically generated, including the user's input.
+            SELECT * FROM users WHERE username='' OR '1'='1' AND password='' OR '1'='1'
+
+        3. The query is executed into the database
+
+        4. Because the condition '1'='1' is always true, 
+            cursor.fetchone() will return the first row it finds in the users table
+
+        5. Since a row is returned ---> " Logged in successfully "
+
+

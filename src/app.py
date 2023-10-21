@@ -13,11 +13,15 @@ app = Flask(__name__)
 
 
 def setup_database():
+    # Connects to an SQLite database named database.db. If the file doesn't exist, it will be created.
     conn = sqlite3.connect('database.db')
+    #  Creates a cursor object. You use this object to execute SQL commands.
     cursor = conn.cursor()
+
+    # Executes an SQL command to create a table called users. The table has three columns: id, username, and password.
     cursor.execute(
         'CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT)')
-
+    # id: Auto-incrementing primary key.
     sample_users = [
         ('Ali', 'password1'),
         ('Ahammed', 'password2'),
@@ -26,10 +30,14 @@ def setup_database():
         ('empty', '')  # User with an empty password
     ]
 
+    # Inserts these sample users into the users table
     cursor.executemany(
         'INSERT INTO users (username, password) VALUES (?, ?)', sample_users)
 
+    # Making sure that all changes are saved
     conn.commit()
+
+    #  Closes the database connection
     conn.close()
 
 
@@ -53,6 +61,7 @@ def index():
         cursor.execute(
             f"SELECT * FROM users WHERE username='{username}' AND password='{password}'")
 
+        # fetches one record that matches the criteria (Username & Password).
         result = cursor.fetchone()
 
         # # Debugging line to print the result

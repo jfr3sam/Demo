@@ -1,0 +1,34 @@
+############ Union-based SQL Injection ############
+     
+    username = ' UNION SELECT NULL, 'a', 'b' -- and password = 
+
+    ' UNION SELECT NULL, 'a', 'b' -- will leave username and password empty
+
+    How it works:
+
+        SELECT * FROM users WHERE username='' UNION SELECT NULL, 'a', 'b' --' AND password=''
+
+        1. SELECT * FROM users WHERE username='' --> will not return any rows 
+            because no username is an empty string in the database.
+
+        2. UNION --> Combines rows from two or more SELECT statements. Here, it adds a new row 
+            with id = NULL, username = 'a', password = 'b'.
+
+        3. '--'  --> is an SQL comment, remves the AND password='' part of the query, 
+            so it doesn't interfere with the UNION operation.
+
+    Execution steps:
+
+        1. The user submite the form with malicious input.
+
+        2. SQL is query string is dynamically generated, including the user's input.
+            SELECT * FROM users WHERE username='' UNION SELECT NULL, 'a', 'b' --' AND password=''
+
+        3. The query is executed into the database 
+
+        4. The cursor.fetchone() will return the row added by the UNION SELECT, which is (NULL, 'a', 'b').
+
+        5. Since a row is returned ---> " Logged in successfully "
+
+
+        
